@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Cafe - Order</title>
+<!-- Google Fonts for Elegant Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    /* Matches welcome page background to maintain visual consistency */
+    background: linear-gradient(rgba(44, 31, 22, 0.65), rgba(44, 31, 22, 0.65)), 
+                url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container{
+    width: 650px;
+    max-width: 100%;
+    /* Glassmorphism styling */
+    background: rgba(255, 252, 245, 0.88); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 55px 45px;
+    border: 1px solid rgba(139, 94, 60, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    color: #4b3224;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.line{
+    width: 70px;
+    height: 3px;
+    background: #8b5e3c;
+    margin: 15px auto 35px;
+    border-radius: 2px;
+}
+
+label{
+    display: block;
+    color: #5c4331;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+select{
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(139, 94, 60, 0.4);
+    border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    color: #4b3224;
+    background-color: rgba(255, 255, 255, 0.7);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select:focus{
+    border-color: #8b5e3c;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.15);
+}
+
+button{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #6f4e37;
+    color: #fffaf0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.25);
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    background: #4b3224;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(111, 78, 55, 0.35);
+}
+
+button:active{
+    transform: translateY(0);
+}
+
+.back{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: 1.5px solid #8b5e3c;
+    color: #8b5e3c;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back:hover{
+    background: rgba(139, 94, 60, 0.08);
+    transform: translateY(-1px);
+}
+
+.confirmation{
+    margin-top: 30px;
+    padding: 24px;
+    background: rgba(248, 241, 231, 0.9);
+    border: 1px solid rgba(139, 94, 60, 0.3);
+    border-radius: 12px;
+    text-align: center;
+    /* Gentle entry animation when an order is submitted */
+    animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.confirmation h2{
+    font-family: 'Playfair Display', serif;
+    color: #4b3224;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+.confirmation p{
+    color: #5c4331;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.confirmation b{
+    color: #6f4e37;
+}
+
+.quote{
+    margin-top: 30px;
+    text-align: center;
+    color: #8b5e3c;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>☕ Place Your Order</h1>
+
+    <div class="line"></div>
+
+    <form action="/menu" method="get">
+
+        <label>Choose Item</label>
+        <select name="item">
+            <option value="coffee">Coffee</option>
+            <option value="tea">Tea</option>
+            <option value="bagel">Bagel</option>
+        </select>
+
+        <label>Select Size</label>
+        <select name="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+
+        <label>Sugar Amount</label>
+        <select name="sugar">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="none">None</option>
+        </select>
+
+        <button type="submit">Place Order ☕</button>
+
+    </form>
+
+    {% if item %}
+    <div class="confirmation">
+        <h2>☕ Order Confirmed!</h2>
+        <p>
+            You ordered a <b>{{ size }}</b>
+            <b>{{ item }}</b>
+            with <b>{{ sugar }}</b> sugar.
+        </p>
+    </div>
+    {% endif %}
+
+    <a href="/" class="back">Back to Home</a>
+
+    <div class="quote">
+        "Every cup tells a story."
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Cafe</title>
+<!-- Google Fonts for Elegant Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    /* Aesthetic, warm, blurred café background with a dark overlay for high readability */
+    background: linear-gradient(rgba(44, 31, 22, 0.65), rgba(44, 31, 22, 0.65)), 
+                url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container{
+    width: 650px;
+    max-width: 100%;
+    /* Glassmorphism styling */
+    background: rgba(255, 252, 245, 0.88); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 55px 45px;
+    text-align: center;
+    border: 1px solid rgba(139, 94, 60, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+nav{
+    margin-bottom: 35px;
+}
+
+nav a{
+    text-decoration: none;
+    color: #6f4e37;
+    margin: 0 15px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover{
+    color: #4b3224;
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    color: #4b3224;
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.line{
+    width: 70px;
+    height: 3px;
+    background: #8b5e3c;
+    margin: 15px auto 25px;
+    border-radius: 2px;
+}
+
+p{
+    color: #5c4331;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    background: #6f4e37;
+    color: #fffaf0;
+    padding: 14px 35px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.25);
+    transition: all 0.3s ease;
+}
+
+.btn:hover{
+    background: #4b3224;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(111, 78, 55, 0.35);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.quote{
+    margin-top: 40px;
+    color: #8b5e3c;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+
+    <h1>☕ Virtual Cafe</h1>
+
+    <div class="line"></div>
+
+    <p>
+        Welcome to the Virtual Cafe!<br>
+        A cozy space where every warm cup tells a beautiful story.
+    </p>
+
+    <a href="/menu" class="btn">
+        Start Your Order
+    </a>
+
+    <div class="quote">
+        "Good coffee is always a good idea."
+    </div>
+
+</div>
+
+</body>
+</html>
